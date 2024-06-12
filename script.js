@@ -1,23 +1,58 @@
+const body=document.querySelector("body");
+
 const container=document.getElementById("container");
 const grid=document.querySelector(".grid");
 const btn=document.createElement("button");
 btn.classList.add("btn");
-container.appendChild(btn);
+body.appendChild(btn);
+body.appendChild(container);
 btn.textContent="Add divs";
 
 btn.addEventListener("click",()=>{
-    prompt("Escribe cuantos divs quieres que existan");
-});
-
-for (let i=1;i<=16;i++){
-    const divs=document.createElement("div");
-    container.appendChild(divs);
-    divs.classList.add("grid");
-    divs.addEventListener("mouseover",()=>{
-        if ("mouseover"){
-            divs.style.backgroundColor="blue";
+    
+    let output=parseInt(prompt("Choose between one and 100 divs"));
+   
+    if (isNaN(output)||output <1||output>100){
+        alert("Please choose a number between 1 and 100");
+    }
+    else{
+        removeAllDivs(container);
+        for (let i=1;i<=output;i++){
+            for(let j=1;j<=output;j++){
+                const divs=document.createElement("div");
+                container.appendChild(divs);
+                divs.classList.add("grid");
+                divs.addEventListener("mouseover",()=>{
+                    if ("mouseover"){
+                        divs.style.backgroundColor="blue";
+                    }
+                        
+                });
+            }
+            
         }
-        
-    });
+    }
+});
+for (let i=1;i<=16;i++){
+    for(let j=1;j<=16;j++){
+        const divs=document.createElement("div");
+        container.appendChild(divs);
+        divs.classList.add("grid");
+        divs.addEventListener("mouseover",()=>{
+            if ("mouseover"){
+                divs.style.backgroundColor="blue";
+            }
+                
+        });
+    }
+    
 }
 
+
+function removeAllDivs(container) {
+    if (container) {
+        while (container.firstChild) {
+            container.removeChild(container.firstChild);
+        }
+    }
+}
