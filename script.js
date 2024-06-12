@@ -1,5 +1,4 @@
 const body=document.querySelector("body");
-
 const container=document.getElementById("container");
 const grid=document.querySelector(".grid");
 const btn=document.createElement("button");
@@ -7,6 +6,21 @@ btn.classList.add("btn");
 body.appendChild(btn);
 body.appendChild(container);
 btn.textContent="Add divs";
+
+function randomInteger(min,max){
+    return min+Math.floor(Math.random()*(max-min+1));
+}
+let r=randomInteger(0,255);
+let b=randomInteger(0,255);
+let g=randomInteger(0,255);
+let rgb=`rgb(${r},${g},${b})`;
+
+
+
+
+
+
+
 
 btn.addEventListener("click",()=>{
     
@@ -24,7 +38,11 @@ btn.addEventListener("click",()=>{
                 divs.classList.add("grid");
                 divs.addEventListener("mouseover",()=>{
                     if ("mouseover"){
-                        divs.style.backgroundColor="blue";
+                        r=randomInteger(0,255);
+                        g=randomInteger(0,255);
+                        b=randomInteger(0,255);
+                        let rgb=`rgb(${r},${g},${b})`;
+                        divs.style.backgroundColor=rgb;
                     }
                         
                 });
@@ -40,7 +58,11 @@ for (let i=1;i<=16;i++){
         divs.classList.add("grid");
         divs.addEventListener("mouseover",()=>{
             if ("mouseover"){
-                divs.style.backgroundColor="blue";
+                r=randomInteger(0,255);
+                g=randomInteger(0,255);
+                b=randomInteger(0,255);
+                let rgb=`rgb(${r},${g},${b})`;
+                divs.style.backgroundColor=rgb;
             }
                 
         });
