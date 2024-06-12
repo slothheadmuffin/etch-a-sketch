@@ -14,7 +14,7 @@ let r=randomInteger(0,255);
 let b=randomInteger(0,255);
 let g=randomInteger(0,255);
 let rgb=`rgb(${r},${g},${b})`;
-
+let opacity1=100;
 
 
 
@@ -64,7 +64,7 @@ for (let i=1;i<=16;i++){
                 let rgb=`rgb(${r},${g},${b})`;
                 divs.style.backgroundColor=rgb;
             }
-                
+               
         });
     }
     
